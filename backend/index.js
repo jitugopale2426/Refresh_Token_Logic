@@ -16,6 +16,10 @@ app.use(cors({
 
 const PORT = process.env.PORT;
 
+app.get('/',(req,res)=>{
+    res.send(`Server running`)
+})
+
 app.use('/api',rootRouter)
 
 app.listen(PORT,()=>{
