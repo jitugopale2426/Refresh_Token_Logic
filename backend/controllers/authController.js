@@ -35,9 +35,14 @@ export const Register = async (req, res, next) => {
       message: "User created successfully",
       user,
     });
-  } catch (err) {
-    return res.status(500).json({ message: "Something went wrong" });
-  }
+  } catch (error) {
+   console.error("REGISTER ERROR:", error);
+   return res.status(500).json({
+      message: "Server error",
+      error: error.message
+   });
+}
+
 };
 
 const JWT_SECRET = process.env.JWT_SECRET;
